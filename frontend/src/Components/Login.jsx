@@ -1,16 +1,19 @@
 import React from 'react'
+import Image from '../assets/landingVector.png'
+import backGround from '../assets/background.jpg'
 
 function Login() {
   return (
-    <div className=" bg-orange-500 flex h-screen items-center justify-center ">
-      <div className="container bg-white backdrop-blur-md bg-opacity-20 shadow-2xl h-2/3 w-1/2  rounded-3xl">
-        <div className="flex justify-center mt-20">
-          <h1 className="text-4xl font-bold">Login</h1>
+    <div  className="bg-gradient-to-r from-purple-400 via-purple-100 to-white">
+    <div  className=" flex h-screen items-center justify-center ">
+      <div className="container bg-white backdrop-blur-md bg-opacity-20 shadow-2xl h-2/3 w-[40vw]  rounded-3xl">
+        <div className="flex justify-center mt-28">
+          <h1 className="text-7xl font-NewAmsterdam tracking-wider">Login</h1>
         </div>
         <div className="flex justify-center mt-10">
           <form className="w-1/2">
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" for="username">
+              <label className="block text-gray-700 text-md font-Exo mb-2" for="username">
                 Username
               </label>
               <input
@@ -21,7 +24,7 @@ function Login() {
               />
             </div>
             <div className="mb-6">
-              <label className="block text-gray-700 text-sm font-bold mb-2" for="password">
+              <label className="block text-gray-700 text-md font-Exo mb-2" for="password">
                 Password
               </label>
               <input
@@ -33,13 +36,13 @@ function Login() {
             </div>
             <div className="flex items-center gap-4">
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-blue-500 hover:bg-blue-700 transition-all duration-200 text-white font-Exo py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="button"
               >
                 Sign In
               </button>
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-blue-500 hover:bg-blue-700 transition-all duration-200 text-white font-Exo py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="button"
               >
                 Sign Up
@@ -48,7 +51,10 @@ function Login() {
           </form>
         </div>
       </div>
-      <div className="container"><img src="./assets.landingVector.png" alt="" /></div>
+      <div className="container h-2/3 w-1/2">
+        <img src={Image} alt="" />
+      </div>
+    </div>
     </div>
   )
 }
