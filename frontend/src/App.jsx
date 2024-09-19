@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Login from './Components/Login'
+import Landing from './Components/ChooseRole/ChooseRolePage'
 
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <Login />
+      
     </>
   )
 }
