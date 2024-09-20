@@ -56,9 +56,15 @@ const Login = () => {
           </button>
         </form>
         <div className="mt-4 text-center">
-          <Link to={`/signup`} className="text-blue-500 hover:underline">
-            Don’t have an account? Sign up here
-          </Link>
+          {
+            role === 'admin' ? (
+              ""
+            ) : (
+              <Link to={`/member/signup`} className="text-blue-500 hover:underline">
+                don't have an account? Sign Up
+              </Link>
+            )
+          }
         </div>
       </div>
     </div>

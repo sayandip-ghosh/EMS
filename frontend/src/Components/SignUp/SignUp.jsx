@@ -65,7 +65,7 @@ const role = location.state?.role || 'member';
           </button>
         </form>
         <div className="mt-4 text-center">
-          <Link to="/login" className="text-blue-500 hover:underline">
+          <Link to="/member/login" className="text-blue-500 hover:underline">
             Already have an account? Log in here
           </Link>
         </div>
