@@ -18,7 +18,7 @@ function Layout({role}) {
     <Navbar1 role={role} isLoggedIn={isLoggedIn} handleLoginToggle={handleLoginToggle} />
     {isLoggedIn?
       (<div className={`flex flex-col lg:flex-row`}>
-        <Sidebar role={role} className="lg:w-64 w-full lg:h-auto h-16 lg:fixed lg:top-0 lg:left-0 fixed top-0 left-0 lg:block hidden" />
+        <Sidebar role={role} className="lg:w-64 w-full lg:h-auto h-screen lg:fixed lg:top-0 lg:left-0 fixed top-0 left-0 lg:block hidden" />
         <div className="flex-1 lg:ml-2 mt-16 lg:mt-0">
           <Outlet context={{ handleLoginToggle }} />
         </div>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Sidebar = ({role}) => {
+const Sidebar = ({ role }) => {
   return (
-    <aside className="w-64 h-screen  bg-purple-700 text-white fixed lg:relative">
+    <aside className="w-64  fixed bg-purple-700 text-white lg:relative overflow-y-auto">
       <nav className="mt-8 ml-2">
         <ul className="space-y-4 mr-2">
           <li>
@@ -13,15 +13,19 @@ const Sidebar = ({role}) => {
             >
               Home
             </NavLink>
-          </li>
-          <li>
-            <NavLink 
-              to={`/${role}/dashboard`} 
-              className={({ isActive }) => isActive ? 'bg-purple-900 p-2 rounded-md block' : 'p-2 block hover:bg-purple-900 rounded-md'}
-            >
-              Dashboard
-            </NavLink>
-          </li>
+            </li>
+            {
+              role==='admin'?(
+              <li>
+                <NavLink 
+                  to={`/${role}/dashboard`} 
+                  className={({ isActive }) => isActive ? 'bg-purple-900 p-2 rounded-md block' : 'p-2 block hover:bg-purple-900 rounded-md'}
+                >
+                  Dashboard
+                </NavLink>
+              </li>):(<></>)
+            }
+          
           <li>
             <NavLink 
               to={`/${role}/projects`} 
