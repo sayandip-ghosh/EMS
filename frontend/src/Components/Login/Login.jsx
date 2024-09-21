@@ -48,12 +48,14 @@ const Login = () => {
               required
             />
           </div>
+          <Link to={`/${role}/home`} >
           <button
             type="submit"
             className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200"
           >
             Login
           </button>
+          </Link>
         </form>
         <div className="mt-4 text-center">
           {
