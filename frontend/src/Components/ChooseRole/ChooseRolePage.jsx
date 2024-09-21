@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import background from '../../assets/Images/background.jpg'; // Adjust path according to your project
 
-const ChooseRolePage = () => {
+const ChooseRolePage = ({ setRole }) => {
   return (
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
@@ -16,6 +16,7 @@ const ChooseRolePage = () => {
           {/* Admin Option */}
           <Link
             to="/admin/login"
+            onClick={() => setRole('admin')}
             state={{ role: 'admin' }}
             className="flex flex-col items-center p-6 bg-blue-100 rounded-lg hover:bg-blue-200 cursor-pointer transition duration-300 ease-in-out transform hover:scale-105"
           >
@@ -29,6 +30,7 @@ const ChooseRolePage = () => {
           {/* Member Option */}
           <Link
             to="/member/login"
+            onClick={() => setRole('member')}
             state={{ role: 'member' }}
             className="flex flex-col items-center p-6 bg-green-100 rounded-lg hover:bg-green-200 cursor-pointer transition duration-300 ease-in-out transform hover:scale-105"
           >
@@ -39,6 +41,11 @@ const ChooseRolePage = () => {
             </p>
           </Link>
         </div>
+        <div className="mt-4 text-center">
+        <Link to={`/member/signup`} className=" text-blue-500 hover:underline">
+                don't have an account? Sign Up
+              </Link>
+              </div>
       </div>
     </div>
   );

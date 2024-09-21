@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
-const Navbar = () => {
-  // State to track whether the user is logged in
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // Mock login/logout toggle for testing (this should come from actual authentication logic)
-  const handleLoginToggle = () => {
-    setIsLoggedIn(!isLoggedIn);
-  };
+const Navbar = ({role, isLoggedIn, handleLoginToggle }) => {
+ 
+  console.log('Navbar isLoggedIn:', isLoggedIn)
 
   return (
     <nav className="bg-white shadow-md">
@@ -31,19 +26,21 @@ const Navbar = () => {
           <div className="flex items-center">
             {isLoggedIn ? (
               <>
-                <Link
-                  to="/home"
-                  className="px-4 py-2 bg-green-500 text-white font-semibold rounded-md shadow hover:bg-green-600 transition duration-200"
+                <NavLink
+                  to={`/${role}/home`}
+                  className="px-4 py-2  text-black font-semibold hover:text-gray-600 transition duration-200"
                 >
                   Home
-                </Link>
+                </NavLink>
                 {/* Temporary logout button for testing */}
+                <Link to='/'>
                 <button
                   onClick={handleLoginToggle}
                   className="ml-4 px-4 py-2 bg-red-500 text-white font-semibold rounded-md shadow hover:bg-red-600 transition duration-200"
                 >
                   Logout
                 </button>
+                </Link>
               </>
             ) : (
               <>

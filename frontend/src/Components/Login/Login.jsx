@@ -1,13 +1,12 @@
 // Login.js
 import React, { useState } from 'react';
-import {Link, useLocation} from 'react-router-dom'
+import {Link, useLocation, useOutletContext} from 'react-router-dom'
 import background from '../../assets/Images/background.jpg';
 
 
-const Login = () => {
-  const location = useLocation();
-  const role = location.state?.role || 'member';
+const Login = ({role}) => {
   
+  const { handleLoginToggle } = useOutletContext();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -51,6 +50,7 @@ const Login = () => {
           <Link to={`/${role}/home`} >
           <button
             type="submit"
+            onClick={handleLoginToggle}
             className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200"
           >
             Login

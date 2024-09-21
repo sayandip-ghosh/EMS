@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
@@ -9,6 +9,8 @@ import Signup from './Components/SignUp/SignUp.jsx'
 import Layout from './Layout.jsx'
 import Error from './Components/Error/Error.jsx'
 import HomePage from './Components/HomePage/HomePage.jsx'
+
+const Main= () =>{
 
 const membersData = [
   {
@@ -58,26 +60,31 @@ const membersData = [
   },
 ];
 
-
+ const [role, setRole] = useState('')
 
 
 
 const router= createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />} >
-      <Route path="" element={<ChooseRolePage />} />
-      <Route path="/admin/login" element={<Login />} />
-      <Route path="/member/login" element={<Login />} />
+    <Route path="/" element={<Layout role={role} />} >
+      <Route path="" element={<ChooseRolePage setRole={setRole} />} />
+      <Route path="/admin/login" element={<Login role={role} />} />
+      <Route path="/member/login" element={<Login role={role} />} />
       <Route path="/member/signup" element={<Signup />} />
-      <Route path="/admin/home" element={<HomePage members={membersData} role="admin" />} />
-      <Route path="/member/home" element={<HomePage members={membersData} role="member" />} />
+      <Route path="/admin/home" element={<HomePage members={membersData} role={role} />} />
+      <Route path="/member/home" element={<HomePage members={membersData} role={role} />} />
       <Route path='*' element={<Error/>} />
     </Route>
   )
 )
 
-createRoot(document.getElementById('root')).render(
+return (
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>,
-)
+  </StrictMode>
+);
+
+}
+createRoot(document.getElementById('root')).render(
+  <Main />
+);

@@ -1,11 +1,13 @@
 // Signup.js
 import React, { useState } from 'react';
-import {Link, useLocation} from 'react-router-dom';
+import {Link, useLocation, useOutletContext} from 'react-router-dom';
 import background from '../../assets/Images/background.jpg';
 
 const Signup = () => {
 const location = useLocation();
 const role = location.state?.role || 'member';
+
+const { handleLoginToggle } = useOutletContext();
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -57,12 +59,15 @@ const role = location.state?.role || 'member';
               required
             />
           </div>
+          <Link to={`/member/home`}>
           <button
             type="submit"
+            onClick={handleLoginToggle}
             className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition duration-200"
           >
             Sign Up
           </button>
+          </Link>
         </form>
         <div className="mt-4 text-center">
           <Link to="/member/login" className="text-blue-500 hover:underline">
