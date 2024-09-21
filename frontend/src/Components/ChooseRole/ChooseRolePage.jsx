@@ -12,7 +12,7 @@ const ChooseRolePage = () => {
         <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">
           Select Role to Login
         </h1>
-        <div className="flex flex-col md:flex-row justify-around space-y-4 md:space-y-0">
+        <div className="flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 gap-8">
           {/* Admin Option */}
           <Link
             to="/admin/login"
