@@ -26,12 +26,12 @@ const Navbar = ({role, isLoggedIn, handleLoginToggle }) => {
           <div className="flex items-center">
             {isLoggedIn ? (
               <>
-                <NavLink
+                {/* <NavLink
                   to={`/${role}/home`}
                   className="px-4 py-2  text-black font-semibold hover:text-gray-600 transition duration-200"
                 >
                   Home
-                </NavLink>
+                </NavLink> */}
                 {/* Temporary logout button for testing */}
                 <Link to='/'>
                 <button
