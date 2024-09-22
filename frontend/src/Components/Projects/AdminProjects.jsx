@@ -12,6 +12,11 @@ const ProjectComponent = ({ projectsData, membersData }) => {
 
   const handleEditTeam = (project) => {
     setSelectedProject(project);
+    setProjectDetails({
+      name: project.name,
+      deadline: project.deadline,
+      team: project.team,
+    });
     setIsModalOpen(true);
     setIsNewProject(false); // editing existing project
   };
@@ -44,6 +49,8 @@ const ProjectComponent = ({ projectsData, membersData }) => {
         status: 'Ongoing',
         progress: 0,
         deadline: projectDetails.deadline,
+        githubLink: '',
+        deploymentLink: '',
         team: projectDetails.team,
       };
       projectsData.push(newProject);
@@ -67,25 +74,62 @@ const ProjectComponent = ({ projectsData, membersData }) => {
           {projectsData
             .filter((project) => project.status === 'Ongoing')
             .map((project) => (
-              <div key={project.id} className="bg-gray-50 p-4 rounded-lg shadow">
-                <h3 className="text-lg font-semibold">{project.name}</h3>
-                <p>Status: {project.status}</p>
-                <p>Progress: {project.progress}%</p>
-                <h4 className="mt-4 font-bold">Team Members:</h4>
-                <ul className="pl-4 list-disc">
-                  {project.team.map((member) => (
-                    <li key={member.id}>
-                      {member.name} - {member.assign}
-                    </li>
-                  ))}
-                </ul>
-                <p>Deadline: {project.deadline}</p>
-                <button
-                  className="mt-4 bg-blue-500 text-white py-1 px-3 rounded"
-                  onClick={() => handleEditTeam(project)}
-                >
-                  Edit Team
-                </button>
+              <div key={project.id} className="bg-gray-50 p-4 rounded-lg shadow flex justify-between">
+                {/* Left side - Project Details */}
+                <div className="w-1/2">
+                  <h3 className="text-lg font-semibold">{project.name}</h3>
+                  <p>Status: {project.status}</p>
+                  <p>Progress: {project.progress}%</p>
+                  <p>Deadline: {project.deadline}</p>
+                  {project.githubLink && (
+                    <p>
+                      <a
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 underline"
+                      >
+                        GitHub Repository
+                      </a>
+                    </p>
+                  )}
+                </div>
+
+                {/* Right side - Team Members */}
+                <div className="w-1/2">
+                  <h4 className="font-bold">Team Members:</h4>
+                  <ul className="pl-4 list-disc">
+                    {/* Team Lead */}
+                    {project.team.filter(member => member.assign === "Team Lead").map((member) => (
+                      <li key={member.id}>
+                        {member.name} - {member.assign}
+                      </li>
+                    ))}
+
+                    {/* Developers */}
+                    <h5 className="mt-2 font-semibold">Developers:</h5>
+                    {project.team.filter(member => member.assign === "Developer").map((member) => (
+                      <li key={member.id}>
+                        {member.name}
+                      </li>
+                    ))}
+
+                    {/* Testers */}
+                    <h5 className="mt-2 font-semibold">Testers:</h5>
+                    {project.team.filter(member => member.assign === "Tester").map((member) => (
+                      <li key={member.id}>
+                        {member.name}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <button
+                    className="mt-4 bg-blue-500 text-white py-1 px-3 rounded"
+                    onClick={() => handleEditTeam(project)}
+                  >
+                    Edit Team
+                  </button>
+                </div>
               </div>
             ))}
         </div>
@@ -104,38 +148,65 @@ const ProjectComponent = ({ projectsData, membersData }) => {
           {projectsData
             .filter((project) => project.status === 'Completed')
             .map((project) => (
-              <div key={project.id} className="bg-gray-50 p-4 rounded-lg shadow">
-                <h3 className="text-lg font-semibold">{project.name}</h3>
-                <p>Status: {project.status}</p>
-                <p>Progress: {project.progress}%</p>
-                <h4 className="mt-4 font-bold">Team Members:</h4>
-                <ul className="pl-4 list-disc">
-                  {project.team.map((member) => (
-                    <li key={member.id}>
-                      {member.name} - {member.assign}
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-4">
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-500 underline"
-                  >
-                    GitHub Link
-                  </a>
-                </p>
-                <p>
-                  <a
-                    href={project.deploymentLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-500 underline"
-                  >
-                    Deployment Link
-                  </a>
-                </p>
+              <div key={project.id} className="bg-gray-50 p-4 rounded-lg shadow flex justify-between">
+                <div className="w-1/2">
+                  <h3 className="text-lg font-semibold">{project.name}</h3>
+                  <p>Status: {project.status}</p>
+                  <p>Progress: {project.progress}%</p>
+                  <p>Deadline: {project.deadline}</p>
+                  {project.githubLink && (
+                    <p>
+                      <a
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 underline"
+                      >
+                        GitHub Repository
+                      </a>
+                    </p>
+                  )}
+                  {project.deploymentLink && (
+                    <p>
+                      <a
+                        href={project.deploymentLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 underline"
+                      >
+                        Deployment Link
+                      </a>
+                    </p>
+                  )}
+                </div>
+
+                <div className="w-1/2">
+                  <h4 className="font-bold">Team Members:</h4>
+                  <ul className="pl-4 list-disc">
+                    {/* Team Lead */}
+                    {project.team.filter(member => member.assign === "Team Lead").map((member) => (
+                      <li key={member.id}>
+                        {member.name} - {member.assign}
+                      </li>
+                    ))}
+
+                    {/* Developers */}
+                    <h5 className="mt-2 font-semibold">Developers:</h5>
+                    {project.team.filter(member => member.assign === "Developer").map((member) => (
+                      <li key={member.id}>
+                        {member.name}
+                      </li>
+                    ))}
+
+                    {/* Testers */}
+                    <h5 className="mt-2 font-semibold">Testers:</h5>
+                    {project.team.filter(member => member.assign === "Tester").map((member) => (
+                      <li key={member.id}>
+                        {member.name}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
         </div>
