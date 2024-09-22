@@ -1,4 +1,33 @@
 export const eventsData = [
-    { id: 1, name: "Annual Conference", date: "2024-09-30", location: "New York" },
-    { id: 2, name: "Marketing Summit", date: "2024-10-15", location: "San Francisco" },
-  ];
+  {
+    id: 1,
+    name: 'Annual General Meeting',
+    date: '2024-09-25',
+    location: 'Main Hall, Building A',
+    organizingTeam: [
+      { memberId: 1, assignment: 'Event Manager' },
+      { memberId: 2, assignment: 'Lead Coordinator' },
+    ],
+  },
+  {
+    id: 2,
+    name: 'Tech Conference',
+    date: '2024-10-15',
+    location: 'Conference Room, Block B',
+    organizingTeam: [
+      { memberId: 3, assignment: 'Event Manager' },
+      { memberId: 4, assignment: 'Tech Support' },
+    ],
+  },
+  {
+    id: 3,
+    name: 'Workshop',
+    date: '2023-10-15',
+    location: 'Conference Room, Block B',
+    organizingTeam: [
+      { memberId: 3, assignment: 'Event Manager' },
+      { memberId: 4, assignment: 'Tech Support' },
+    ],
+  },
+];
+

@@ -18,6 +18,11 @@ const AdminDashboard = ({ membersData, projectsData, eventsData }) => {
     (member) => member.performance <= 20 || member.attendance <= 20
   );
 
+  const getUpcomingEvents = () => {
+    const today = new Date().toISOString().split('T')[0];
+    return eventsData.filter(event => event.date >= today);
+  };
+
   return (
     <div className="p-6 space-y-6">
       {/* Total Members and Domain Overview */}
@@ -89,7 +94,7 @@ const AdminDashboard = ({ membersData, projectsData, eventsData }) => {
       <section className="bg-white shadow-lg rounded-lg p-6">
         <h2 className="text-2xl font-bold mb-4">Upcoming Events</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {eventsData.map((event) => (
+          {getUpcomingEvents().map((event) => (
             <div key={event.id} className="bg-gray-50 p-4 rounded-lg shadow">
               <h3 className="text-lg font-semibold">{event.name}</h3>
               <p>Date: {event.date}</p>
