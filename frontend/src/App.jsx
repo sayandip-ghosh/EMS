@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Landing from './Components/ChooseRole/ChooseRolePage'
 
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
 
   return (
     <>
-      <h1>hello</h1>
+      
     </>
   )
 }
