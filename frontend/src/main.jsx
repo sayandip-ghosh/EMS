@@ -10,6 +10,7 @@ import Layout from './Layout.jsx'
 import Error from './Components/Error/Error.jsx'
 import HomePage from './Components/HomePage/HomePage.jsx'
 import AdminDashboard from './Components/Dashboard/AdminDashboard.jsx'
+import AdminProjects from './Components/Projects/AdminProjects.jsx'
 import { membersData } from './Data/membersData.js'
 import { projectsData } from './Data/projectsData.js'
 import { eventsData } from './Data/eventsData.js'
@@ -34,6 +35,7 @@ const router= createBrowserRouter(
               projectsData={projectsData} 
               eventsData={eventsData} 
             />} />
+      <Route path='/admin/projects' element={<AdminProjects projectsData={projectsData} membersData={membersData} />} />
       <Route path='*' element={<Error/>} />
     </Route>
   )
