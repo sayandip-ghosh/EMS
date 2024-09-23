@@ -12,7 +12,23 @@ const Navbar = ({role, isLoggedIn, handleLoginToggle }) => {
           <img src="./src/assets/Images/logo.png" alt="logo" className='logo' />
           <h1>Emp<span>Space</span></h1>
         </div>
-        <button className="about-btn">About</button>
+        {isLoggedIn ? (
+          <div className='flex justify-center items-center ml-8'>
+            <Link to='/about'>
+          <button className="about-btn">About</button>
+          </Link>
+          <Link to='/'>
+          <button onClick={handleLoginToggle} className="logout-btn">LogOut</button>
+          </Link>
+          </div>
+        ):(
+          <div className='flex justify-center items-center ml-8'>
+          <Link to='/about'>
+          <button className="about-btn">About</button>
+          </Link>
+          </div>
+        )}
+        
       </nav>
 
   );

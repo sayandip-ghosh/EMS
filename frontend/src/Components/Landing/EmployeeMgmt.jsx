@@ -25,7 +25,9 @@ const EmployeeMgmt = () => {
           <Link to="/choose-role">
             <button className="login-btn">LOGIN &gt; </button>
           </Link>
+          <Link to="/member/signup">
           <button className="signup-btn">SIGN UP &gt; </button>
+          </Link>
         </div>
       </div>
     </div>
