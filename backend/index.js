@@ -1,19 +1,16 @@
-const express = require("express");
+import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+
+
 const app = express();
-require("dotenv").config();
 
-// Middleware to parse URL-encoded form data
+const PORT = process.env.PORT || 8080;
+
 app.use(express.urlencoded({ extended: true }));
-
-// middleware cors
-const cors = require("cors");
 app.use(cors());
-
-// middleware body parser
-const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
-const PORT = process.env.PORT || 3000;
 
 app.get("/ping",(req,res)=>{
     res.send("pong");
