@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import AuthRouter from './Routes/AuthRoutes.js';
 
 
 const app = express();
@@ -12,13 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-app.get("/ping",(req,res)=>{
-    res.send("pong");
-})
-
-app.get("/",(req,res)=>{
-    res.send("Hello This is the Backend of hackerspace Employee Management System");
-})
+app.get('/auth',AuthRouter)
 
 
 app.listen(PORT , ()=>{
