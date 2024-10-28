@@ -2,7 +2,7 @@ import React from 'react';
 import './EmployeeMgmt.css';
 import { Link } from 'react-router-dom'; // Import Link for routing
 
-const EmployeeMgmt = () => {
+const EmployeeMgmt = ({setRole}) => {
   return (
     <div className="employee-management">      
       {/* Main Content */}
@@ -22,11 +22,11 @@ const EmployeeMgmt = () => {
         </div>
         <div className="action-buttons">
           {/* Use Link component to route to ChooseRolePage */}
-          <Link to="/choose-role">
-            <button className="login-btn">LOGIN &gt; </button>
+          <Link to="/member/login">
+            <button onClick={() => setRole('member')} className="login-btn">LOGIN &gt; </button>
           </Link>
           <Link to="/member/signup">
-          <button className="signup-btn">SIGN UP &gt; </button>
+          <button onClick={() => setRole('member')} className="signup-btn">SIGN UP &gt; </button>
           </Link>
         </div>
       </div>

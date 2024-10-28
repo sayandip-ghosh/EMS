@@ -10,7 +10,7 @@ function Layout({role}) {
   
     const handleLoginToggle = () => {
       setIsLoggedIn(!isLoggedIn);
-      console.log('Login state toggled:', isLoggedIn);
+      console.log('Login state toggled:', isLoggedIn,role);
     };
 
   return (

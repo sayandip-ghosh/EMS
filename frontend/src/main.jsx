@@ -17,18 +17,17 @@ import { projectsData } from './Data/projectsData.js';
 import { eventsData } from './Data/eventsData.js';
 
 const Main = () => {
-  const [role, setRole] = useState('');
+  const [role, setRole] = useState('member');
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Layout role={role} />}>
+      <Route path="/" element={<Layout role={role}/>}>
         {/* Set EmployeeMgmt as the default page */}
-        <Route index element={<EmployeeMgmt />} />
+        <Route index element={<EmployeeMgmt setRole={setRole} />} />
         
         {/* Other routes */}
-        <Route path="/choose-role" element={<ChooseRolePage setRole={setRole} />} />
         <Route path="/admin/login" element={<Login role={role} />} />
-        <Route path="/member/login" element={<Login role={role} />} />
+        <Route path="/member/login" element={<Login role={role} setRole={setRole} />} />
         <Route path="/member/signup" element={<Signup />} />
         <Route path="/admin/home" element={<HomePage members={membersData} role={role} />} />
         <Route path="/member/home" element={<HomePage members={membersData} role={role} />} />
