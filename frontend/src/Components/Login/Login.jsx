@@ -1,12 +1,14 @@
 // Login.js
 import React, { useState } from 'react';
-import {Link, useLocation, useOutletContext} from 'react-router-dom'
+import {Link,useNavigate, useLocation, useOutletContext} from 'react-router-dom'
 import background from '../../assets/Images/background.jpg';
 
 
-const Login = ({role}) => {
+const Login = ({setRole, role}) => {
   
   const { handleLoginToggle } = useOutletContext();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,11 +23,33 @@ const Login = ({role}) => {
     }
   };
 
+  const isMemberLogin = location.pathname === '/member/login';
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-cover bg-center"
     style={{ backgroundImage: `url(${background})` }}>
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">{role === 'admin' ? 'Admin' : 'Member'} Login</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+        <div className="flex mb-6">
+          <Link
+          to='/member/login'
+            className={`flex-1 text-center py-2 text-lg font-semibold rounded-t-lg ${
+              isMemberLogin ? 'bg-blue-100 text-blue-600' : 'bg-gray-200 text-gray-500'
+            }`}
+            onClick={() => setRole('member')}
+          >
+            MEMBER
+          </Link>
+          <Link
+            to='/admin/login'
+            className={`flex-1 text-center py-2 text-lg font-semibold rounded-t-lg ${
+              !isMemberLogin ? 'bg-blue-100 text-blue-600' : 'bg-gray-200 text-gray-500'
+            }`}
+            onClick={() => setRole('admin')}
+          >
+            ADMIN
+          </Link>
+        </div>
         <form onSubmit={handleLogin}>
           <div className="mb-4">
             <label className="block text-gray-700 mb-2">Email</label>
