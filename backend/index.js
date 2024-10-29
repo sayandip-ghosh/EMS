@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import AuthRouter from './Routes/AuthRoutes.js';
+import authRouter from './Routes/AuthRoutes.js';
+import connectDB from './Models/db.js';
 
 
 const app = express();
@@ -12,11 +13,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use('/auth',authRouter)
 
-app.get('/auth',AuthRouter)
-
-
-app.listen(PORT , ()=>{
-    console.log('Server is running on port ', PORT);
-    
+connectDB()
+.then(()=>{
+    app.listen(PORT , ()=>{
+        console.log('Server is running on port ', PORT);
+        
+    })
+})
+.catch((error)=>{
+    console.log('Connection failed',error);
 })
