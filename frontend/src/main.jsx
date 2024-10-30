@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import EmployeeMgmt from './Components/Landing/EmployeeMgmt.jsx';
-import ChooseRolePage from './Components/ChooseRole/ChooseRolePage.jsx';
 import Login from './Components/Login/Login.jsx';
 import Signup from './Components/SignUp/SignUp.jsx';
 import Layout from './Layout.jsx';
