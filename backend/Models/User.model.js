@@ -26,4 +26,25 @@ const userSchema = new mongoose.Schema({
     //attendance: event:objectid(eventnid),members[objectid],time,
 },{timestamps: true})
 
-export const UserModel = mongoose.model('User',userSchema)
+export const UserModel = mongoose.model('User',userSchema);
+
+const attendanceSchema = new mongoose.Schema({
+    event: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Event', // Reference to the Event model
+        required: true,
+    },
+    members: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User', 
+            required: true,
+        }
+    ],
+    time: {
+        type: Date,
+        default: Date.now, 
+    }
+}, { timestamps: true });
+
+export const AttendanceModel = mongoose.model('Attendance', attendanceSchema);
