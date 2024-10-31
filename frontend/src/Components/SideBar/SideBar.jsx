@@ -43,12 +43,14 @@ const Sidebar = ({ role }) => {
             </NavLink>
           </li>
           <li>
+            {role === "member" && 
             <NavLink 
               to={`/${role}/myprofile`} 
               className={({ isActive }) => isActive ? 'bg-purple-900 p-2 rounded-md block' : 'p-2 block hover:bg-purple-900 rounded-md'}
             >
               My Profile
             </NavLink>
+            }
           </li>
         </ul>
       </nav>

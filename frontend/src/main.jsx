@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import EmployeeMgmt from './Components/Landing/EmployeeMgmt.jsx';
-import ChooseRolePage from './Components/ChooseRole/ChooseRolePage.jsx';
+// import ChooseRolePage from './Components/ChooseRole/ChooseRolePage';
 import Login from './Components/Login/Login.jsx';
 import Signup from './Components/SignUp/SignUp.jsx';
 import Layout from './Layout.jsx';
@@ -15,6 +15,8 @@ import AdminEvents from './Components/Events/AdminEvents.jsx';
 import { membersData } from './Data/membersData.js';
 import { projectsData } from './Data/projectsData.js';
 import { eventsData } from './Data/eventsData.js';
+import Myprofile from "./Components/My profile/Myprofile.jsx";
+
 
 const Main = () => {
   const [role, setRole] = useState('member');
@@ -31,7 +33,8 @@ const Main = () => {
         <Route path="/member/signup" element={<Signup />} />
         <Route path="/admin/home" element={<HomePage members={membersData} role={role} />} />
         <Route path="/member/home" element={<HomePage members={membersData} role={role} />} />
-        
+        <Route path="/member/myprofile" element={<Myprofile members={membersData} role={role} />} />
+
         <Route
           path="/admin/dashboard"
           element={
