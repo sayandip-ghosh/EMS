@@ -1,9 +1,8 @@
 import React from 'react';
 import { FaRegClock } from 'react-icons/fa';
 import { FaLocationDot } from "react-icons/fa6";
-import { membersData } from '../../Data/membersData';
 
-const EventCard = ({ event, isUpcoming }) => {
+const EventCard = ({ event, isUpcoming, membersData }) => {
   const cardStyle = isUpcoming ? 'bg-green-200' : 'bg-gray-300';
 
   return (

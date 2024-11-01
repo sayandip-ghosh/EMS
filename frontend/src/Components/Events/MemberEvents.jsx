@@ -1,9 +1,7 @@
 import React from 'react';
 import EventCard from './EventCard';
-import Sidebar from '../SideBar/SideBar';
-import { eventsData } from '../../Data/eventsData';
 
-const MemberEvents = () => {
+const MemberEvents = ({eventsData, membersData}) => {
   return (
     <div className="p-8">
     <div className="mb-8">
@@ -11,7 +9,7 @@ const MemberEvents = () => {
       {eventsData
         .filter((event) => event.status === 'upcoming')
         .map((event) => (
-          <EventCard key={event.id} event={event} isUpcoming={true} />
+          <EventCard key={event.id} event={event} isUpcoming={true} membersData= {membersData}/>
         ))}
     </div>
     <div>
@@ -19,7 +17,7 @@ const MemberEvents = () => {
       {eventsData
         .filter((event) => event.status === 'past')
         .map((event) => (
-          <EventCard key={event.id} event={event} isUpcoming={false} />
+          <EventCard key={event.id} event={event} isUpcoming={false} membersData= {membersData}/>
         ))}
     </div>
   </div>
