@@ -12,7 +12,6 @@ import AdminDashboard from './Components/Dashboard/AdminDashboard.jsx';
 import AdminProjects from './Components/Projects/AdminProjects.jsx';
 import AdminEvents from './Components/Events/AdminEvents.jsx';
 import MemberEvents from './Components/Events/MemberEvents.jsx';
-import MyProfile from './Components/MyProfile/MyProfile.jsx';
 import { membersData } from './Data/membersData.js';
 import { projectsData } from './Data/projectsData.js';
 import { eventsData } from './Data/eventsData.js';
@@ -32,7 +31,6 @@ const Main = () => {
         <Route path="/member/signup" element={<Signup />} />
         <Route path="/admin/home" element={<HomePage members={membersData} role={role} />} />
         <Route path="/member/home" element={<HomePage members={membersData} role={role} />} />
-        <Route path="/member/myprofile" element={<MyProfile members={membersData} role={role} />} />
         
         <Route
           path="/admin/dashboard"
