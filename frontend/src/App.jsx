@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import React Router components
 import EmployeeMgmt from './Components/Landing/EmployeeMgmt';
-import ChooseRolePage from './Components/ChooseRole/ChooseRolePage'; // Adjust the path according to your project
+//import ChooseRolePage from './Components/ChooseRole/ChooseRolePage'; // Adjust the path according to your project
 
 function App() {
   return (
@@ -11,11 +11,10 @@ function App() {
         <Route path="/" element={<EmployeeMgmt />} />
 
         {/* Route for the Choose Role page */}
-        <Route path="/choose-role" element={<ChooseRolePage />} />
+        {/* <Route path="/choose-role" element={<ChooseRolePage />} /> */}
       </Routes>
     </Router>
   );
 }
 
 export default App
-
