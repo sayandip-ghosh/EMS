@@ -9,7 +9,8 @@ export const projectsData = [
     team: [
       { id: 1, name: "John Doe", assign: "Team Lead" },
       { id: 2, name: "Jane Smith", assign: "Developer" },
-      { id: 3, name: "Mike Johnson", assign: "Tester" },
+      { id: 3, name: "Sahil", assign: "Developer" },
+      { id: 4, name: "Mike Johnson", assign: "Tester" },
     ],
   },
   {
