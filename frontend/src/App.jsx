@@ -9,7 +9,6 @@ function App() {
       <Routes>
         {/* Route for the Employee Management (Landing) page */}
         <Route path="/" element={<EmployeeMgmt />} />
-
         {/* Route for the Choose Role page */}
         <Route path="/choose-role" element={<ChooseRolePage />} />
       </Routes>
