@@ -15,8 +15,8 @@ const ProjectSchema = new mongoose.Schema({
     }],
     projectTags:[{
         type:String,
-        enum : [ ''],
-        default : '',
+        // enum : [ ''],
+        // default : '',
     }],
     projectLink:{
         type: String,
@@ -26,7 +26,7 @@ const ProjectSchema = new mongoose.Schema({
     },
     projectStatus:{
         type: String,
-        default: ongoing,
+        default: 'ongoing',
         enum: [ 'ongoing','completed'],
     },
     progress:{
@@ -37,7 +37,7 @@ const ProjectSchema = new mongoose.Schema({
         type:String,
     }],
     deadline:{
-        type:Date,
+        type:String,
     },
         
     }
