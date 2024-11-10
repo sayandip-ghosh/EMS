@@ -33,7 +33,7 @@ const Main = () => {
         <Route path="/member/signup" element={<Signup />} />
         <Route path="/admin/home" element={<HomePage members={membersData} role={role} />} />
         <Route path="/member/home" element={<HomePage members={membersData} role={role} />} />
-        <Route path="/member/myprofile" element={<Myprofile members={membersData} role={role} />} />
+        <Route path="/member/myprofile/:id" element={<Myprofile members={membersData} role={role} />} />
 
         <Route
           path="/admin/dashboard"
