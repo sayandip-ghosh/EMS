@@ -11,6 +11,7 @@ import HomePage from './Components/HomePage/HomePage.jsx';
 import AdminDashboard from './Components/Dashboard/AdminDashboard.jsx';
 import AdminProjects from './Components/Projects/AdminProjects.jsx';
 import AdminEvents from './Components/Events/AdminEvents.jsx';
+import MemberEvents from './Components/Events/MemberEvents.jsx';
 import { membersData } from './Data/membersData.js';
 import { projectsData } from './Data/projectsData.js';
 import { eventsData } from './Data/eventsData.js';
@@ -60,6 +61,10 @@ const Main = () => {
           element={
             <AdminEvents eventsData={eventsData} membersData={membersData} />
           }
+        />
+        <Route
+          path="/member/events"
+          element={<MemberEvents eventsData={eventsData} membersData={membersData} />}
         />
         <Route path="*" element={<Error />} />
       </Route>
