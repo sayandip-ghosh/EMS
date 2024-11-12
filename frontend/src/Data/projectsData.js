@@ -9,7 +9,8 @@ export const projectsData = [
     team: [
       { id: 1, name: "John Doe", assign: "Team Lead" },
       { id: 2, name: "Jane Smith", assign: "Developer" },
-      { id: 3, name: "Mike Johnson", assign: "Tester" },
+      { id: 3, name: "Sahil", assign: "Developer" },
+      { id: 4, name: "Mike Johnson", assign: "Tester" },
     ],
   },
   {
@@ -19,7 +20,7 @@ export const projectsData = [
     progress: 100,
     deadline: "2024-08-01",
     team: [
-      { id: 1, name: "John Doe", assign: "Team Lead" },
+      { id: 4, name: "Sara Lee", assign: "Team Lead" },
       { id: 5, name: "Chris Green", assign: "Developer" },
       { id: 6, name: "Mary Brown", assign: "Tester" },
     ],
