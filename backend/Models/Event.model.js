@@ -3,7 +3,7 @@ import mongoose from  'mongoose'
 const eventSchema = new mongoose.Schema({
     eventName: String,
     date: Date,
-    time: String,
+    time: Date,
     venue: String,
     description: String,
     members: [{type: mongoose.Schema.Types.ObjectId, ref: 'Member'}],
@@ -11,4 +11,4 @@ const eventSchema = new mongoose.Schema({
 
 },{timestamp: true})
 
-export const UserModel = mongoose.model('Event', eventSchema)
+export const EventModel = mongoose.model('Event', eventSchema)

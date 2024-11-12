@@ -2,7 +2,28 @@
 import { projectsData } from "../../Data/projectsData";
 
 
-function ProjectRow({ project }) {
+function displayProjectData(ID){
+  console.log(ID)
+  const data = [];
+  projectsData.forEach((ele)=>{
+    ele.team.forEach((e) =>{
+      if(e.id === ID){
+        data.push(ele);
+      }
+    })
+  })
+  console.log(data)
+  return(
+    <>
+    {data.map((project) => (
+      <ProjectRow key={project.id} project={project} ID={ID} />
+    ))}
+    </>
+  )
+}
+
+
+function ProjectRow({ project}) {
     return (
         <tr
             key={project.id}
@@ -17,13 +38,13 @@ function ProjectRow({ project }) {
 }
 
 
-function Projects(){
+function Projects({ID}){
 
     return(
     <>
         <div className="bg-blue-100 rounded-lg p-4 space-y-2 shadow-md">
             <h3 className="font-semibold border-b border-neutral-800 pb-1">Projects/Assignments</h3>
-            <table className="w-full text-left border-separate border-spacing-0 text-center">
+            <table className="w-full border-separate border-spacing-0 text-center">
               <thead>
                 <tr className="bg-inherit">
                   <th className="p-2">Name</th>
@@ -33,9 +54,12 @@ function Projects(){
                 </tr>
               </thead>
               <tbody>
-              {projectsData.map((project) => (
-                <ProjectRow key={project.id} project={project} />
-              ))}
+              {/* {data.map((project) => (
+                <ProjectRow key={project.id} project={project} ID={ID} />
+              ))} */}
+              {
+                displayProjectData(ID)
+              }
               </tbody>
             </table>
         </div>
