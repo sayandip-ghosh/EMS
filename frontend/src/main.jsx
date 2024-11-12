@@ -10,6 +10,7 @@ import Error from './Components/Error/Error.jsx';
 import HomePage from './Components/HomePage/HomePage.jsx';
 import AdminDashboard from './Components/Dashboard/AdminDashboard.jsx';
 import AdminProjects from './Components/Projects/AdminProjects.jsx';
+import MemberProjects from './Components/Projects/MemberProjects.jsx';
 import AdminEvents from './Components/Events/AdminEvents.jsx';
 import MemberEvents from './Components/Events/MemberEvents.jsx';
 import { membersData } from './Data/membersData.js';
@@ -56,6 +57,15 @@ const Main = () => {
             />
           }
         />
+
+          {/* Member Projects */}
+        {role === 'member' && (
+          <Route
+            path="/member/projects"
+            element={<MemberProjects projectsData={projectsData} memberId={101} />} // pass the logged-in memberId
+          />
+        )}
+
         <Route
           path="/admin/events"
           element={
