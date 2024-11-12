@@ -9,7 +9,7 @@ export default {
       fontFamily: {
         NewAmsterdam:  ["New Amsterdam", "sans-serif"],
         Exo:  ["Exo", "sans-serif"],
-
+        poppins: ['Poppins', 'sans-serif'],
 
       }
     },

@@ -13,7 +13,7 @@ import { FaLinkedin, FaTwitter, FaGithub, FaUserShield } from 'react-icons/fa'; 
           alt={`${name}'s profile`}
           />
         </div>
-        <div className="bg-gray-100 h-[290px] p-3 pt-6">
+        <div className="bg-gray-100 h-[290px] mt-2 p-4">
               <div className="flex items-center justify-center mb-2">
               <h2 className="text-[25px] font-bold text-gray-800">{name}</h2>
         {isAdmin && (
