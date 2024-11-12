@@ -31,7 +31,7 @@ const Myprofile = ({members})  => {
           <Information member = {member}/>  {/* Information Section */}
 
           
-          <Projects />  {/* Projects / Assignments Section */}
+          <Projects ID = {memberId}/>  {/* Projects / Assignments Section */}
           </div>
         </div>
 
