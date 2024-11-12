@@ -51,7 +51,7 @@ const MemberProjectComponent = ({ projectsData, memberId }) => {
             ))}
         </div>
       </section>
-
+      {/*green*/}
       {/* Completed Projects Section */}
       <section
         style={{ backgroundColor: 'rgba(187, 247, 208, 0.9)' }}
