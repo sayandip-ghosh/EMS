@@ -59,6 +59,7 @@ const Sidebar = ({ role }) => {
             </NavLink>
           </li>
           <li>
+            {role === "member" && 
             <NavLink 
               to={`/${role}/myprofile`} 
               className={({ isActive }) => 
@@ -69,6 +70,7 @@ const Sidebar = ({ role }) => {
             >
               My Profile
             </NavLink>
+            }
           </li>
         </ul>
       </nav>
