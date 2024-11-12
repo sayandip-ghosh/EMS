@@ -8,4 +8,4 @@ const domainSchema = new mongoose.Schema({
     attendance:[{type: mongoose.Schema.Types.ObjectId, ref:'Attendance'}],
 
 },{timestamp: true})
-export const UserModel = mongoose.model('Domain', domainSchema)
+export const DomainModel = mongoose.model('Domain', domainSchema)
