@@ -23,7 +23,7 @@ function Projects(){
     <>
         <div className="bg-blue-100 rounded-lg p-4 space-y-2 shadow-md">
             <h3 className="font-semibold border-b border-neutral-800 pb-1">Projects/Assignments</h3>
-            <table className="w-full text-left border-separate border-spacing-0 text-center">
+            <table className="w-full border-separate border-spacing-0 text-center">
               <thead>
                 <tr className="bg-inherit">
                   <th className="p-2">Name</th>
