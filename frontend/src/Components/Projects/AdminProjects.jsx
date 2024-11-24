@@ -66,9 +66,11 @@ const ProjectComponent = ({ projectsData, membersData }) => {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 font-poppins">
       {/* Ongoing Projects Section */}
-      <section className="bg-white shadow-lg rounded-lg p-6">
+      <section 
+      style={{ backgroundColor: 'rgba(242, 159, 103, 0.5)' }}
+      className="shadow-lg rounded-lg p-6">
         <h2 className="text-2xl font-bold mb-4">Ongoing Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projectsData
@@ -97,58 +99,38 @@ const ProjectComponent = ({ projectsData, membersData }) => {
 
                 {/* Right side - Team Members */}
                 <div className="w-1/2">
-                  <h4 className="font-bold">Team Members:</h4>
-                  <ul className="pl-4 list-disc">
-                    {/* Team Lead */}
-                    {project.team.filter(member => member.assign === "Team Lead").map((member) => (
-                      <li key={member.id}>
-                        {member.name} - {member.assign}
-                      </li>
-                    ))}
-
-                    {/* Developers */}
-                    <h5 className="mt-2 font-semibold">Developers:</h5>
-                    {project.team.filter(member => member.assign === "Developer").map((member) => (
-                      <li key={member.id}>
-                        {member.name}
-                      </li>
-                    ))}
-
-                    {/* Testers */}
-                    <h5 className="mt-2 font-semibold">Testers:</h5>
-                    {project.team.filter(member => member.assign === "Tester").map((member) => (
-                      <li key={member.id}>
-                        {member.name}
-                      </li>
-                    ))}
-                  </ul>
-
+                  <h4 className="font-bold mb-2">Team Details</h4>
+<p><strong>Team Lead:</strong> {project.team.find(member => member.assign === "Team Lead")?.name || 'None'}</p>
+<p><strong>Developers:</strong> {project.team.filter(member => member.assign === "Developer").map(member => member.name).join(', ') || 'None'}</p>
+<p><strong>Testers:</strong> {project.team.filter(member => member.assign === "Tester").map(member => member.name).join(', ') || 'None'}</p>
                   <button
-                    className="mt-4 bg-blue-500 text-white py-1 px-3 rounded"
-                    onClick={() => handleEditTeam(project)}
-                  >
-                    Edit Team
-                  </button>
+  className="mt-4 bg-[#4AB59F] text-white py-1 px-3 rounded transition duration-300 ease-in-out hover:bg-[#3a9b7f] transform hover:scale-105"
+  onClick={() => handleEditTeam(project)}
+>
+  Edit Team
+</button>
                 </div>
               </div>
             ))}
         </div>
         <button
-          className="mt-6 bg-green-500 text-white py-2 px-4 rounded"
-          onClick={handleAddProject}
-        >
-          Add New Project
-        </button>
+  className="mt-6 bg-[#1f456e] text-white py-2 px-4 rounded transition duration-300 ease-in-out hover:bg-[#163b54] transform hover:scale-105"
+  onClick={handleAddProject}
+>
+  Add New Project
+</button>
       </section>
 
       {/* Completed Projects Section */}
-      <section className="bg-white shadow-lg rounded-lg p-6">
+      <section 
+      style={{ backgroundColor: 'rgba(187, 247, 208, 0.9)' }}
+      className="shadow-lg rounded-lg p-6">
         <h2 className="text-2xl font-bold mb-4">Completed Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projectsData
             .filter((project) => project.status === 'Completed')
             .map((project) => (
-              <div key={project.id} className="bg-gray-50 p-4 rounded-lg shadow flex justify-between">
+              <div key={project.id} className="bg-gray-50 p-4 rounded-lg shadow flex justify-between transition duration-300 ease-in-out transform hover:scale-105">
                 <div className="w-1/2">
                   <h3 className="text-lg font-semibold">{project.name}</h3>
                   <p>Status: {project.status}</p>
@@ -181,31 +163,10 @@ const ProjectComponent = ({ projectsData, membersData }) => {
                 </div>
 
                 <div className="w-1/2">
-                  <h4 className="font-bold">Team Members:</h4>
-                  <ul className="pl-4 list-disc">
-                    {/* Team Lead */}
-                    {project.team.filter(member => member.assign === "Team Lead").map((member) => (
-                      <li key={member.id}>
-                        {member.name} - {member.assign}
-                      </li>
-                    ))}
-
-                    {/* Developers */}
-                    <h5 className="mt-2 font-semibold">Developers:</h5>
-                    {project.team.filter(member => member.assign === "Developer").map((member) => (
-                      <li key={member.id}>
-                        {member.name}
-                      </li>
-                    ))}
-
-                    {/* Testers */}
-                    <h5 className="mt-2 font-semibold">Testers:</h5>
-                    {project.team.filter(member => member.assign === "Tester").map((member) => (
-                      <li key={member.id}>
-                        {member.name}
-                      </li>
-                    ))}
-                  </ul>
+                  <h4 className="font-bold mb-2">Team Details</h4>
+                  <p><strong>Team Lead:</strong> {project.team.find(member => member.assign === "Team Lead")?.name || 'None'}</p>
+<p><strong>Developers:</strong> {project.team.filter(member => member.assign === "Developer").map(member => member.name).join(', ') || 'None'}</p>
+<p><strong>Testers:</strong> {project.team.filter(member => member.assign === "Tester").map(member => member.name).join(', ') || 'None'}</p>
                 </div>
               </div>
             ))}
@@ -272,7 +233,7 @@ const ProjectComponent = ({ projectsData, membersData }) => {
 
             {/* Save Button */}
             <button
-              className="mt-4 bg-green-500 text-white py-2 px-4 rounded"
+              className="mt-4 bg-green-500 text-white py-2 px-4 rounded transition duration-300 ease-in-out hover:bg-[#009E60] transform hover:scale-105"
               onClick={handleSaveProject}
             >
               {isNewProject ? 'Add Project' : 'Save Team'}

@@ -3,7 +3,7 @@ import mongoose from  'mongoose'
 const eventSchema = new mongoose.Schema({
     eventName: String,
     date: Date,
-    time: String,
+    time: Date,
     venue: String,
     description: String,
     members: [{type: mongoose.Schema.Types.ObjectId, ref: 'Member'}],

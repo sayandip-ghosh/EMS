@@ -19,7 +19,7 @@ export const projectsData = [
     progress: 100,
     deadline: "2024-08-01",
     team: [
-      { id: 4, name: "Sara Lee", assign: "Team Lead" },
+      { id: 1, name: "John Doe", assign: "Team Lead" },
       { id: 5, name: "Chris Green", assign: "Developer" },
       { id: 6, name: "Mary Brown", assign: "Tester" },
     ],
